@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: aws-cicd
+  name: aws-cicd
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: aws-cicd
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: aws-cicd
+    spec:
+      containers:
+      - image: dnyaneshwarinchale/aws-cicd:1.0
+        name: aws-cicd
+        ports:
+        - containerPort: 8000
+        resources: {}
+status: {}
